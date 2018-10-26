@@ -1,10 +1,10 @@
 
 function renderRectangle(rectangle) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(rectangle)}</code>
-        </div>
-    `
+    var rectangle = `
+            <div style="background-color: ${rectangle.color}; height: ${rectangle.height}px; width: ${rectangle.width}px">
+            </div>
+    `;
+    return rectangle;
 }
 
 function rectangle() {

@@ -1,14 +1,12 @@
 
 function renderCircles(circles) {
     var circleHTML = circles.map(function(circle) {
-        var circles = 
-        `<div class="text-center mt-5">
-            <div style="margin: 0 auto; background-color: ${circle.color}; border-radius: 100%; width: ${circle.radius}px; height: ${circle.radius}px">
+        return `
+            <div class="text-center mt-5">
+                <div style="margin: 0 auto; background-color: ${circle.color}; border-radius: 100%; width: ${circle.radius}px; height: ${circle.radius}px">
+                </div>
             </div>
-        </div>
-        `;
-        return circles;
-        
+            `;
     });
     return circleHTML.join("");
 }

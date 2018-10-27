@@ -4,26 +4,28 @@ function renderSurveys(surveys) {
         return `
         <div class="container-fluid">
             <div class="d-flex flex-column">
-                <h1></h1>
+                <h1>${survey.title}</h1>
                 <hr>
                 ${renderFields(survey.fields)}
             </div>
+            <button></button>
         </div>
         `
     });
-
+    return finalHTML.join("");
 }
 
 function renderFields(fields) {
     var fieldsHTML = fields.map(function (field){
         return `
         <div class="radio">
-            <h3></h3>
+            <h3>${field.label}</h3>
             ${renderOptions(field.options)}
         </div>
         <div class="text">
             <h3></h3>
-            <button></button>
+            <input type="text">
+            
         </div>
         `
     });

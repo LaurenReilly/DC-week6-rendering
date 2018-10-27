@@ -1,10 +1,42 @@
 
 function renderSurveys(surveys) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(surveys)}</code>
+    var finalHTML = surveys.map(function (survey) {
+        return `
+        <div class="container-fluid">
+            <div class="d-flex flex-column">
+                <h1></h1>
+                <hr>
+                ${renderFields(survey.fields)}
+            </div>
         </div>
-    `
+        `
+    });
+
+}
+
+function renderFields(fields) {
+    var fieldsHTML = fields.map(function (field){
+        return `
+        <div class="radio">
+            <h3></h3>
+            ${renderOptions(field.options)}
+        </div>
+        <div class="text">
+            <h3></h3>
+            <button></button>
+        </div>
+        `
+    });
+    return fieldsHTML.join("");
+}
+
+function renderOptions(options) {
+    var optionsHTML = options.map(function(option) {
+        return `
+            <input type="radio" value="${option}">
+        `
+    });
+    return optionsHTML.join("");
 }
 
 function surveys() {

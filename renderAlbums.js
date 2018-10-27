@@ -1,25 +1,48 @@
 
-function renderAlbums(albums) {
+function renderArtist(artist) {
     //will use multiple .map functions for each type of info
-`<div class="container-fluid d-flex flex-column">
-    <h1>${}</h1>
-    <hr>
-    <div class="d-flex">
-        <img src="album" alt="" width="50" height="50">
-        <h3 class="ml-2">album name</h3>
-    </div>
-    <div class="d-flex flex-column">
-        <div class="d-flex justify-content-between border border-dark border-top border-bottom py-3">
-            <div>
-                <img src="play.png" alt="">
-                <p>${}</p>
-            </div>
-            <p>${}</p>
-        </div>
-    </div>
-</div>`
+    var artistHTML = artist.map(function(artist) {
+        return `
+            <div class="container-fluid d-flex flex-column">
+                <h1 class="align-self-start">${artist.artist.toUpperCase()}</h1>
+                <hr class="albums">
+                ${renderAlbum(artist.albums)}
+            </div>`
+    });
+    return artistHTML.join("");
 }
 
+function renderAlbum(album) {
+    var albumHTML = album.map(function(album){
+        return `
+            <div class="d-flex mt-4">
+                <img src="${album.albumCover}" alt="" width="100" height="100">
+                <h3 class="ml-2">${album.title}</h3>
+            </div>
+            ${renderSong(album.songs)}
+        `
+    });
+    return albumHTML.join("");
+}
+
+function renderSong(song) {
+    var songHTML = song.map(function(song){
+        return `
+            <div class="d-flex flex-column">
+                <div class="d-flex justify-content-between border-dark border-top border-bottom py-3">
+                    <div class="d-flex">
+                        <img src="play.png" alt="">
+                        <p class="ml-3">${song.title}</p>
+                    </div>
+                    <p>${song.length}</p>
+                </div>
+            </div>
+        `
+    });
+    return songHTML.join("");
+}
+
+//album abstraction
 function albums() {
     var content = document.getElementById('content');
 
@@ -92,6 +115,6 @@ function albums() {
         }
     ]
 
-    content.innerHTML = renderAlbums(albumsAbstraction);
+    content.innerHTML = renderArtist(albumsAbstraction);
 
 }

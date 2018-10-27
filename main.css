@@ -19,3 +19,7 @@ hr {
     margin-bottom: 10px;
     width: 90%;
 }
+
+hr.albums {
+    width: 100%;
+}

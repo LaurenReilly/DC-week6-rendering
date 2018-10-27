@@ -1,10 +1,28 @@
 
 function renderMovies(movies) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(movies)}</code>
-        </div>
-    `
+    var finalHTML = movies.map(function(movie) {
+        var rottenPercentage = movie.rottenTomatoesRating * 100;
+        return `
+        <div class="d-flex p-3 border rounded m-auto" style="background-color: grey; width: 600px;">
+            <img src="${movie.poster}" alt="">
+            <div class="d-flex flex-column justify-content-between mx-5 mt-3 border rounded" style="background-color: white">
+                <div>
+                    <h3><b>${movie.title}</b></h3>
+                    <h4>${movie.year}</h4>
+                </div>
+                <div>
+                    <h3>IMDB Rating:</h3>
+                    <h4>${movie.imdbRating}/10</h4>
+                </div>
+                <div>
+                    <h3>Rotten Tomatoes:</h3>
+                    <h4>${rottenPercentage}%</h4>
+                </div>
+            </div>
+        </div> 
+        `
+    });
+    return finalHTML.join("");
 }
 
 function movies() {

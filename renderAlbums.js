@@ -1,10 +1,23 @@
 
 function renderAlbums(albums) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(albums)}</code>
+    //will use multiple .map functions for each type of info
+`<div class="container-fluid d-flex flex-column">
+    <h1>${}</h1>
+    <hr>
+    <div class="d-flex">
+        <img src="album" alt="" width="50" height="50">
+        <h3 class="ml-2">album name</h3>
+    </div>
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between border border-dark border-top border-bottom py-3">
+            <div>
+                <img src="play.png" alt="">
+                <p>${}</p>
+            </div>
+            <p>${}</p>
         </div>
-    `
+    </div>
+</div>`
 }
 
 function albums() {

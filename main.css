@@ -11,3 +11,11 @@
 #content {
     margin: 0 auto;
 }
+
+hr {
+    height: 1px;
+    background-color:#555;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+}

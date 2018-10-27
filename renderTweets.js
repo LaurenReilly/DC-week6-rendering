@@ -1,10 +1,43 @@
 
 function renderTweets(tweets) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(tweets)}</code>
+    var finalHTML = tweets.map(function(tweet) {
+        return `
+        <div class="d-flex flex-column border border-dark rounded p-3 m-5" style="width: 700px">
+            <div class="d-flex">
+                <img src="${tweet.user.profilePic}" class="img-circle" height="70" width="70" alt="">
+                <div class="d-flex flex-column mt-3 ml-2 align-items-start">
+                    <div class="d-flex">
+                        <h4>${tweet.user.username}</h4>
+                        <img src="verified.png" class="mt-2 ml-1"height="18" width="18" alt="">
+                    </div>
+                    <p>${tweet.user.handle}</p>
+                </div>
+            </div>
+            <div style="width: 90%; margin: 0 auto;" class="mt-1">
+                <h3 style="text-align: left;">${tweet.text}</h3>
+            </div>
+            <hr>
+            <div class="d-flex">
+                <div class="d-flex p-3">
+                    <img src="comment.png" alt="" height="20" width="20">
+                    <p class="ml-2">${tweet.replies}</p>
+                </div>
+                <div class="d-flex p-3">
+                    <img src="retweet.png" alt="" height="20" width="20">
+                    <p class="ml-2">${tweet.retweets}</p>
+                </div>
+                <div class="d-flex p-3">
+                    <img src="like.png" alt="" height="20" width="20">
+                    <p class="ml-2">${tweet.likes}</p>
+                </div>
+                <div class="d-flex p-3">
+                    <img src="mail.png" alt="" height="20" width="20">
+                </div>
+            </div>
         </div>
-    `
+        `
+    });
+    return finalHTML.join("");
 }
 
 function tweets() {

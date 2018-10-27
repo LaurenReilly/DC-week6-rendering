@@ -1,7 +1,7 @@
 
 function renderStudents(students) {
     var mainContainer = `
-        <div class="d-flex flex-column align-items-center border border-dark mt-5" style="width: 402px; margin: 0 auto">
+        <div class="d-flex flex-column align-items-center border border-dark mt-5" style="width: 400px; margin: 0 auto">
             <h2 class="text-center">Role Call: </h2>
         </div>
     `

@@ -1,12 +1,11 @@
 
 function renderPokerHand(pokerHand) {
-    // HINT: You can use <img /> tags that point to these playing card images: 
-    // https://commons.wikimedia.org/wiki/Category:SVG_playing_cards
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(pokerHand)}</code>
-        </div>
+   var card = pokerHand.map(function(card) {
+        return `
+            <img src="${card.image}">
     `
+    });
+    return card.join("");
 }
 
 function pokerHand() {
@@ -15,23 +14,28 @@ function pokerHand() {
     var pokerHandAbstraction = [
         {
             value: "K",
-            suit: "C"
+            suit: "C",
+            image:"king-c.png"
         },
         {
             value: "K",
-            suit: "D"
+            suit: "D",
+            image: "king-d.png"
         },
         {
             value: "9",
-            suit: "S"
+            suit: "S",
+            image: "nine-s.png"
         },
         {
             value: "2",
-            suit: "H"
+            suit: "H",
+            image: "two-h.png"
         },
         {
             value: "9",
-            suit: "H"
+            suit: "H",
+            image: "nine-h.png"
         }
     ];
 

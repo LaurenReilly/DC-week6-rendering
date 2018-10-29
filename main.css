@@ -20,6 +20,16 @@ hr {
     width: 90%;
 }
 
-hr.albums {
+hr.albums, hr.survey {
     width: 100%;
+}
+
+input[type=text] {
+    width: 400px;
+    height: 200px;
+}
+
+.surveyLabel {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }

@@ -2,13 +2,14 @@
 function renderSurveys(surveys) {
     var finalHTML = surveys.map(function (survey) {
         return `
-        <div class="container-fluid">
-            <div class="d-flex flex-column">
+        <div class="border border-dark rounded mb-5" style="width: 800px">
+            <div class="d-flex flex-column align-items-start m-5">
                 <h1>${survey.title}</h1>
-                <hr>
+                <hr class="survey">
                 ${renderFields(survey.fields)}
+                <button class="btn btn-primary btn-sm mt-3" type="submit">${survey.submitButtonText}</button>
             </div>
-            <button></button>
+            
         </div>
         `
     });
@@ -17,17 +18,22 @@ function renderSurveys(surveys) {
 
 function renderFields(fields) {
     var fieldsHTML = fields.map(function (field){
-        return `
-        <div class="radio">
-            <h3>${field.label}</h3>
-            ${renderOptions(field.options)}
-        </div>
-        <div class="text">
-            <h3></h3>
-            <input type="text">
-            
-        </div>
-        `
+        if (field.type === "radio") {
+            return `
+            <div class="d-flex flex-column align-items-start">
+                <label>${field.label}</label>
+                ${renderOptions(field.options)}
+            </div>
+            `
+        } else {
+            return `
+            <div class="d-flex flex-column align-items-start">
+                <label>${field.label}</label>
+                <input type="${field.type}"
+            </div>
+            `
+        }
+     
     });
     return fieldsHTML.join("");
 }
@@ -35,7 +41,10 @@ function renderFields(fields) {
 function renderOptions(options) {
     var optionsHTML = options.map(function(option) {
         return `
-            <input type="radio" value="${option}">
+            <div>
+                <input type="radio" id="${option}" value="${option}" />
+                <label for="${option}">${option}</label>
+            </div>
         `
     });
     return optionsHTML.join("");
